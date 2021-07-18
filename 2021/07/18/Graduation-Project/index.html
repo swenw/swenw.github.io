@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.48.17.png">
 <meta property="og:image" content="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.49.40.png">
 <meta property="article:published_time" content="2021-07-18T03:56:08.000Z">
-<meta property="article:modified_time" content="2021-07-18T04:04:44.593Z">
+<meta property="article:modified_time" content="2021-07-18T04:08:47.833Z">
 <meta property="article:author" content="SWenW">
 <meta property="article:tag" content="Project">
 <meta name="twitter:card" content="summary">
@@ -280,16 +280,17 @@
 <p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.25.34.png" alt="发行代币被转入合约部署人账户"></p>
 <h2 id="代币购买"><a href="#代币购买" class="headerlink" title="代币购买"></a>代币购买</h2><p>为了使交易过程更真实，我在项目中使用了支付宝接口，由于没有营业执照啥的，所以只能使用支付宝沙箱（应该是？）作为一个大概的模拟</p>
 <ol>
-<li><p>调用支付宝接口完成支付</p>
-<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.29.10.png" alt="调用支付宝接口完成支付"></p>
-</li>
-<li><p>支付成功，调用代币合约，支付给以太坊矿工手续费</p>
-<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.30.53.png" alt="截屏2021-07-18 11.30.53"></p>
-</li>
-<li><p>合约调用成功，测试网络交易展示</p>
-<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.32.01.png" alt="合约调用成功"></p>
-</li>
+<li>调用支付宝接口完成支付</li>
 </ol>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.29.10.png" alt="调用支付宝接口完成支付"></p>
+<ol start="2">
+<li>支付成功，调用代币合约，支付给以太坊矿工手续费</li>
+</ol>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.30.53.png" alt="截屏2021-07-18 11.30.53"></p>
+<ol start="3">
+<li>合约调用成功，测试网络交易展示</li>
+</ol>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.32.01.png" alt="合约调用成功"></p>
 <h2 id="众筹项目管理"><a href="#众筹项目管理" class="headerlink" title="众筹项目管理"></a>众筹项目管理</h2><p>这里采用投资方发起100Token的众筹项目，投资人1为其投资20Token，投资人2为其投资20Token，投资人3为其投资15Token，投资人4为其投资45Token。在四位投资人投资完成后，项目众筹成功。</p>
 <p>为了不使文章篇幅过长，这里仅展示ropsten网络中的合约调用情况。</p>
 <p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.37.26.png" alt="投资合约调用"></p>
@@ -304,9 +305,9 @@
 <p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.49.40.png" alt="截屏2021-07-18 11.49.40"></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本系统能实现众筹、代币流通、约束产品团队行为的主要功能，但仍然存在以下几个方面的不足：</p>
 <ol>
-<li><p> 由于系统基于以太坊平台，而在以太坊中，目前采用的共识算法是PoW。PoW的特点使得节点间需要参与算力的比拼才能达成最终的共识，这一举措会使得记账节点消耗大量的资源并造成出块时间不稳定。同时PoW算法在以太坊平台中对以太币的要求过高，这将导致若不给予记账节点以太币的报酬，便不可以进行出块的操作。</p>
+<li><p>由于系统基于以太坊平台，而在以太坊中，目前采用的共识算法是PoW。PoW的特点使得节点间需要参与算力的比拼才能达成最终的共识，这一举措会使得记账节点消耗大量的资源并造成出块时间不稳定。同时PoW算法在以太坊平台中对以太币的要求过高，这将导致若不给予记账节点以太币的报酬，便不可以进行出块的操作。</p>
 </li>
-<li><p> 本系统对产品团队的行为约束方法是在其发起资金使用请求后，通过项目投资者投票，超过半数资金同意便将资金转入产品团队账户。但仍会出现产品团队恶意融资，先投入过半资金再将剩余资金卷走的不道德行为。</p>
+<li><p>本系统对产品团队的行为约束方法是在其发起资金使用请求后，通过项目投资者投票，超过半数资金同意便将资金转入产品团队账户。但仍会出现产品团队恶意融资，先投入过半资金再将剩余资金卷走的不道德行为。</p>
 </li>
 </ol>
 

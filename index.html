@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-		    总文章数 1
+		    总文章数 2
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -158,6 +158,190 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Graduation-Project" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/18/Graduation-Project/">基于ICO模式的众筹系统开发</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/18/Graduation-Project/" class="archive-article-date">
+  	<time datetime="2021-07-18T03:56:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>毕业得有大半个月了，现在才想着把自己的毕业设计好好整理出来，唉…  </p>
+<p>一开始想做的毕业设计是有关于网络安全的，然后找到了导师是做区块链的，想到当时面试uestc的时候老师问我什么是区块链，我完全没有答上来… 所以就跟着导师做了  </p>
+<p>然而导师和我一开始的想法背道而驰，因为他想要我做与区块链算法有关的，而我更想做一个实际的东西。所以在经过了和老师多方探讨，还有好几次组会都被批评之后，终于得到了肯定，我的毕设论文也成为了学校的优秀毕业设计。现在我就对整个区块链系统做一个大致梳理。</p>
+<h1 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h1><ol>
+<li>在传统的中心化众筹平台中，数据大都集中于公司后备数据库，难免出现数据被篡改或是数据丢失的情况。</li>
+<li>在传统的交易模式下，产品团队和众筹平台虽然达成了共识，签订了合约，但产品团队却仍拥有对募集而来资金的绝大部分话语权。</li>
+<li>交易数据不透明，出资人无法掌握项目的充分信息，又与产品团队不存在良好的信任基础，这将导致出资人缺乏对投资风险的预估，面临着资金丢失的巨大风险。  </li>
+</ol>
+<p>为了解决上述的问题，我的毕业设计采用了<strong>区块链 + 智能合约</strong>的方式，将每一笔交易都记录与区块链上，使交易数据由集中式变为分布式存储，保证数据安全。而采用公链进行存储的模式，能使得数据公开，人人皆可访问区块链上的数据。  为了降低项目方对募集资金的绝对话语权，我还采用了投票表决的方式，项目方想要用钱就必须发起申请，而这一申请只有收到1/2资金表决通过项目方才能收到代币。</p>
+<p>而为什么要基于ICO模式，一个是来自于DAO项目的启发，另一个是现在炒币变得火热，我也想试试自己发行虚拟数字货币。于是这些便构成了我毕业设计的大致思路。</p>
+<h1 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h1><h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><p>在2008年中本聪在其论文中将区块链应用为一个账本，存储在一个P2P的点对点网络中。网络中的每个节点都共同维护着这一不可篡改的账本，当一个新的区块想要加入时，网络中的每一个节点都拥有判断其是否能加入的能力，只有节点达成共识，区块才能被链接到区块链上。这样，每一笔比特币的转账记录都会被记录到区块并链接到链上永久保存，交易数据公开透明。  </p>
+<p>区块链是由一个个区块通过哈希值相连，最终组成的链式结构，如下图所示，一个区块可分为区块头和区块体两部分。在区块头中主要存储着前一区块的哈希值、本区块的哈希值、时间戳、随机数和难度等信息。在区块体中主要存储着交易数据及数据计数等信息。其中在区块头中存放的时间戳及前一区块的哈希信息使得区块的连接顺序受到保证。区块自己的哈希值是根据Merkle树计算一个区块中所有交易的哈希值得到的，所以一旦数据被篡改，区块的哈希值会被重新计算，区块链就会由此断开。所以根据区块的哈希计算特性，要想篡改链上数据是非常非常困难的。</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.04.45.png" alt="区块链及区块结构"></p>
+<h2 id="智能合约"><a href="#智能合约" class="headerlink" title="智能合约"></a>智能合约</h2><p>在区块链的架构中，智能合约作为链上代码在区块中存储，一般采用Solidity等脚本语言对智能合约进行编写并将其编译为可被以太坊识别的二进制机器码。机器码随着一次交易打包发送到区块链网络中，经过网络中记账节点的验证后部署到区块链上，使每一个区块链的节点都存储着一份智能合约，合约只有在被调用的时候才会被以太坊虚拟机(Ethereum Virtual Machine，简称EVM)加载执行。  </p>
+<p>合约部署后会创建一个合约账户，账户中保存着智能合约的可执行字节码作为特定的接口供用户调用，并且有存储空间存储着状态变量及数据，智能合约能对合约账户的空间写入信息。在智能合约中一般有两种操作，一种是只读操作，仅读取在智能合约中的变量值；一种是写入操作，需要对智能合约中定义的值进行改动。在之后的交易中，若需调整合约中的数据，则需要向整个的区块链世界发送交易信息。  </p>
+<p>为保证区块链网络的安全，智能合约一般在隔离的沙箱环境中运行，其运行机制如下图所示。合约与合约之间的运作不受干扰。经过虚拟机运算成功后，若判定为交易成立，在所有节点达成共识后，便会将状态变量修改之后的结果广播给区块链中的每一个节点，新的状态值也就由此被记录下来。</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.05.33.png" alt="智能合约的运行机制"></p>
+<h2 id="ICO"><a href="#ICO" class="headerlink" title="ICO"></a>ICO</h2><p>数字货币从某种意义上来说，它是金钱的等价物，除了充当货币以外，不具有任何的功能。而与数字货币容易混淆的另一种概念是数字代币，数字代币除了具有数字货币的支付功能，还能在特定的生态网络中以“通行证”的方式存在。目前在以太坊网络中流行着一种代币设计标准，那就是ERC20，只有遵守这一标准发行的代币才能被第三方应用支持。在编写并部署好一份标准的ERC20的代币合约后，第三方机构要是想流通这一代币，便会使用其编写好的代码与代币合约建立通信，这样在区块链网络中的用户便可以进行代币的交易了。  </p>
+<p>ICO融资模式在早期的区块链生态系统中通常被译为“首次货币发行”，但其中的Coin在众多学者看来存在私人发行数字货币的敏感性，故后来人们习惯于将Coin替换为Token，并加上“Crypto”，将其译为“通过发行加密代币进行融资”。ICO是区块链公司或去中心化组织通过售卖早期加密代币出售给参与者，从而融得资金的新型区块链众筹管理方式。2016年，一个名为“The DAO”的ICO众筹项目上线，其利用DAO币与以太币的兑换方式，最终融资额超过了1.3亿美元，成为了有史以来融资数额最大的众筹项目。虽然后续由于智能合约的编写存在递归漏洞导致合约中的资金被黑客全部转移，使得以太坊创始人Vitalik Buterin决定采用 “硬分叉”将资金全部找回，但其众筹思想及融资模式仍然有力推动了区块链系统各层的技术创新及发展。</p>
+<h1 id="系统开发"><a href="#系统开发" class="headerlink" title="系统开发"></a>系统开发</h1><h2 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h2><p>众筹系统中的使用者由三类用户组成：代币账户、产品团队、产品投资人，其系统模型如图3-1所示。合约部署者在区块链上部署好代币合约、众筹平台合约，并经过记账节点挖矿将交易同步至区块链网络中后，区块链网络自动分配合约地址完成部署。代币合约部署完成后，会将合约中发行的代币自动转入合约部署人账户。</p>
+<p>![众筹系统模型](<a target="_blank" rel="noopener" href="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18">https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/截屏2021-07-18</a> 11.16.54.png)</p>
+<p>下图是智能合约的调用过程与系统前后端的交互方式。</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.15.27.png" alt="智能合约调用过程"></p>
+<h2 id="开发软件"><a href="#开发软件" class="headerlink" title="开发软件"></a>开发软件</h2><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>描述</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Node.js</td>
+<td>JavaScript 运行环境，基于Chrome V8引擎</td>
+<td>10.20.1</td>
+</tr>
+<tr>
+<td>Vue</td>
+<td>构建用户界面的渐进式前端框架</td>
+<td>4.3.1</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td>JavaScript的超集，可以被编译为纯的JavaScript</td>
+<td>4.2.4</td>
+</tr>
+<tr>
+<td>Solidity</td>
+<td>面向智能合约的高级编程语言</td>
+<td>0.5.20</td>
+</tr>
+<tr>
+<td>Truffle</td>
+<td>基于Solidity语言的开发框架</td>
+<td>5.3.0</td>
+</tr>
+<tr>
+<td>Web3.js</td>
+<td>以太坊JavaScript  API库，用于与以太坊节点连接</td>
+<td>1.3.1</td>
+</tr>
+<tr>
+<td>MetaMask</td>
+<td>以太坊钱包，用于管理以太坊数字资产</td>
+<td>9.5.1</td>
+</tr>
+<tr>
+<td>Remix</td>
+<td>智能合约编译器</td>
+<td>0.10.5</td>
+</tr>
+</tbody></table>
+<h1 id="测试流程"><a href="#测试流程" class="headerlink" title="测试流程"></a>测试流程</h1><h2 id="合约部署"><a href="#合约部署" class="headerlink" title="合约部署"></a>合约部署</h2><p>在以太坊生态中，有一部分节点使用与以太坊主网不同的创世区块，开启了一条全新的区块链用于开发者在正式部署前调试。出于测试的目的，为了引入较多的节点共同运作，本系统采用ropsten测试网络对智能合约进行部署。</p>
+<p>由于以太坊不同网络中的运行机制有细微不同，为了统一开发接口，这里使用Infura作为智能合约的部署节点。Infura是一个Web3的通信服务集中式提供商，可以让DAPP在本地无需运行以太坊节点的情况下接入以太坊平台。在修改了项目config文件后，对本地truffle的Web3通信服务上进行设置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 设置web3的通信服务商</span><br><span class="line">web3.setProvider(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"># 查看web3通信服务商</span><br><span class="line">web3.currentProvider</span><br></pre></td></tr></table></figure>
+
+<p>修改完成后，可以对智能合约进行远程部署，下图是智能合约部署完成示例</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.22.40.png" alt="智能合约在ropsten中部署完成"></p>
+<p>值得注意的是，代币合约在ropsten网络中部署完成后，如图所示进行了一次转账操作。操作的发起人是以太坊中特殊的全零地址，发起人将代币合约中设定发行的10000个Token转入了合约部署人的账户</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.25.34.png" alt="发行代币被转入合约部署人账户"></p>
+<h2 id="代币购买"><a href="#代币购买" class="headerlink" title="代币购买"></a>代币购买</h2><p>为了使交易过程更真实，我在项目中使用了支付宝接口，由于没有营业执照啥的，所以只能使用支付宝沙箱（应该是？）作为一个大概的模拟</p>
+<ol>
+<li><p>调用支付宝接口完成支付</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.29.10.png" alt="调用支付宝接口完成支付"></p>
+</li>
+<li><p>支付成功，调用代币合约，支付给以太坊矿工手续费</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.30.53.png" alt="截屏2021-07-18 11.30.53"></p>
+</li>
+<li><p>合约调用成功，测试网络交易展示</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.32.01.png" alt="合约调用成功"></p>
+</li>
+</ol>
+<h2 id="众筹项目管理"><a href="#众筹项目管理" class="headerlink" title="众筹项目管理"></a>众筹项目管理</h2><p>这里采用投资方发起100Token的众筹项目，投资人1为其投资20Token，投资人2为其投资20Token，投资人3为其投资15Token，投资人4为其投资45Token。在四位投资人投资完成后，项目众筹成功。</p>
+<p>为了不使文章篇幅过长，这里仅展示ropsten网络中的合约调用情况。</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.37.26.png" alt="投资合约调用"></p>
+<p>可以看到，投资成功后，测试网络中出现了四条调用智能合约中Contribute方法的交易信息，并且交易被记录于区块链上。</p>
+<p>在众筹时间达到并且众筹金额没达到的情况下，在智能合约中对此情况判定为众筹失败，会自动调用合约中的众筹失败处理方法，即将用户投资的钱原路退回。项目方发起另一项目。投资人1为其投资50 Token，在众筹失败后，投资人1可选择退回投资，合约调用情况如下图所示。可以看出，合约自动调用了Return Money方法。</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.40.57.png" alt="众筹失败"></p>
+<h2 id="项目方行为约束"><a href="#项目方行为约束" class="headerlink" title="项目方行为约束"></a>项目方行为约束</h2><p>项目方在项目详情的使用请求页面发起新的资金请求，请求金额为50 Token。而投资者1、投资者2、投资者3与投资者4均能收到来自项目方的资金使用请求。</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.44.52.png" alt="投资人收到请求"></p>
+<p>在投资人1、2、3均同意后，项目方的请求就已经被通过了。因为此时已经拿到了20 + 20 + 15 = 55Token的赞成票，超过了融资金额100Token的半数。在智能合约中，设定此种情况下项目方请求的金额会被自动转入其账户，在ropsten网络中的交易信息也可以证实这一点。</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.48.17.png" alt="请求通过，自动转账"></p>
+<p>经过一系列操作后，各个账户中本平台发行的数字代币的持有情况如下图所示。</p>
+<p><img src="https://sww-blog.oss-cn-chengdu.aliyuncs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-18%2011.49.40.png" alt="截屏2021-07-18 11.49.40"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本系统能实现众筹、代币流通、约束产品团队行为的主要功能，但仍然存在以下几个方面的不足：</p>
+<ol>
+<li><p> 由于系统基于以太坊平台，而在以太坊中，目前采用的共识算法是PoW。PoW的特点使得节点间需要参与算力的比拼才能达成最终的共识，这一举措会使得记账节点消耗大量的资源并造成出块时间不稳定。同时PoW算法在以太坊平台中对以太币的要求过高，这将导致若不给予记账节点以太币的报酬，便不可以进行出块的操作。</p>
+</li>
+<li><p> 本系统对产品团队的行为约束方法是在其发起资金使用请求后，通过项目投资者投票，超过半数资金同意便将资金转入产品团队账户。但仍会出现产品团队恶意融资，先投入过半资金再将剩余资金卷走的不道德行为。</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Project</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/18/Graduation-Project/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Hello" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -320,6 +504,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Project</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">life</a>

@@ -11,7 +11,7 @@
   <meta name="description" content="Java Web基础&amp;emsp;&amp;emsp;这一节主要涉及的内容包括XML、Servlet、JSP、JSTL等，是使用Java进行Web开发的第一步。 1. XML入门&amp;emsp;&amp;emsp;XML全称是Extensible Markup Language，可扩展标记语言。其语言特点与HTML非常类似，它的拓展名是.xml&amp;emsp;&amp;emsp;XML中的标签不存在预定义，用户可以根据需要创建标签">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Web基础">
-<meta property="og:url" content="http://example.com/2022/02/12/Java-Web%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:url" content="http://example.com/2022/02/12/Java-Web%E5%9F%BA%E7%A1%80(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="SWenW&#39;s Blog">
 <meta property="og:description" content="Java Web基础&amp;emsp;&amp;emsp;这一节主要涉及的内容包括XML、Servlet、JSP、JSTL等，是使用Java进行Web开发的第一步。 1. XML入门&amp;emsp;&amp;emsp;XML全称是Extensible Markup Language，可扩展标记语言。其语言特点与HTML非常类似，它的拓展名是.xml&amp;emsp;&amp;emsp;XML中的标签不存在预定义，用户可以根据需要创建标签">
 <meta property="og:locale" content="zh_CN">
@@ -23,9 +23,9 @@
 <meta property="og:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/02/12/16432500384305.png">
 <meta property="og:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/02/12/16443951106715.png">
 <meta property="article:published_time" content="2022-02-12T03:42:40.000Z">
-<meta property="article:modified_time" content="2022-02-12T03:46:18.734Z">
+<meta property="article:modified_time" content="2022-02-12T04:01:18.321Z">
 <meta property="article:author" content="SWenW">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Java Web">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/02/12/16420605387537.jpg">
   
@@ -77,7 +77,7 @@
 			</ul>
 		</nav>
 		<nav>
-		    总文章数 4
+		    总文章数 5
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -170,7 +170,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java-Web基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java-Web基础(一)" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -182,7 +182,7 @@
   
 
         
-        <a href="/2022/02/12/Java-Web%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+        <a href="/2022/02/12/Java-Web%E5%9F%BA%E7%A1%80(%E4%B8%80)/" class="archive-article-date">
   	<time datetime="2022-02-12T03:42:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-12</time>
 </a>
         
@@ -260,8 +260,80 @@
 <p>采用Dom4j写入XML代码的方法如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.web.dom4j;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.dom4j.*;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HrWriter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeXml</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String file = <span class="string">&quot;/Users/swenw/AwesomeProject/JavaEE/learningTask/hr.xml&quot;</span>;</span><br><span class="line">        SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Document document = reader.read(file);</span><br><span class="line">            Element root = document.getRootElement();</span><br><span class="line">            <span class="comment">//在root节点下新建一个子节点存储在内存中</span></span><br><span class="line">            Element employee = root.addElement(<span class="string">&quot;employee&quot;</span>);</span><br><span class="line">            employee.addAttribute(<span class="string">&quot;no&quot;</span>, <span class="string">&quot;2023&quot;</span>);</span><br><span class="line">            <span class="comment">//按树形结构进行添加至内存中</span></span><br><span class="line">            Element name = employee.addElement(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">            name.setText(<span class="string">&quot;Jane&quot;</span>);</span><br><span class="line">            employee.addElement(<span class="string">&quot;age&quot;</span>).setText(<span class="string">&quot;31&quot;</span>);</span><br><span class="line">            Element department = employee.addElement(<span class="string">&quot;department&quot;</span>);</span><br><span class="line">            department.addElement(<span class="string">&quot;address&quot;</span>).setText(<span class="string">&quot;Anshun&quot;</span>);</span><br><span class="line">            <span class="comment">//将内存中的模型写入至XML文件中</span></span><br><span class="line">            Writer writer = <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(file), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">            document.write(writer);</span><br><span class="line">            writer.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HrWriter hrWriter = <span class="keyword">new</span> HrWriter();</span><br><span class="line">        hrWriter.writeXml();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-4-XPath路径表达式"><a href="#1-4-XPath路径表达式" class="headerlink" title="1.4. XPath路径表达式"></a>1.4. XPath路径表达式</h3><p>&emsp;&emsp;如果采用XML作为数据存储的工具，在进行数据挑选的时候，如：选出所有工资大于3000的员工、选出所有年龄在20-30的员工。根据前面的知识我们知道可以使用循环遍历+条件判断的方法，但是有没有更简便的方法呢？<br>&emsp;&emsp;XPath路径表达式是XML文档中查找数据的语言，使用XPath路径表达式可以极大提高在XML中查找数据及提取数据的效率<br>&emsp;&emsp;在XPath中的基本表达式：<br>| 表达式 | 描述 |<br>|:——:|:—-:|<br>|nodename|选取此节点的所有子节点|<br>|/|从根节点选取|<br>|//|从匹配选择的当前节点选取文档中的节点，而不考虑它们的位置|<br>|.|选取当前节点|<br>|..|选取当前节点的父节点|<br>|@|选取属性|</p>
-<p>XPath谓语表达式（在基础表达式中加上[]限定）：<br>| 路径表达式 | 结果 |<br>|:——:|:—-:|<br>|/bookstore/book[1]|选取bookstore子元素下的第一个book元素|<br>|/bookstore/book[last()]|选取bookstore子元素下的最后一个book元素|<br>|/bookstore/book[last()-1]|选取bookstore子元素下的倒数第二个book元素|<br>|/bookstore/book[position()&lt;3]|选取bookstore子元素下的前两个book元素|<br>|//title[@lang]|选取所有拥有名为lang属性的title元素|<br>|//title[@lang=’eng’]|选取所有属性名为eng的title元素|<br>|/bookstore/book[price&gt;35.00]|选取bookstore子元素下的price大于35的book元素|<br>|/bookstore/book[price&gt;35.00]/title|选取bookstore子元素下的price大于35的book元素下的title元素|</p>
+<h3 id="1-4-XPath路径表达式"><a href="#1-4-XPath路径表达式" class="headerlink" title="1.4. XPath路径表达式"></a>1.4. XPath路径表达式</h3><p>&emsp;&emsp;如果采用XML作为数据存储的工具，在进行数据挑选的时候，如：选出所有工资大于3000的员工、选出所有年龄在20-30的员工。根据前面的知识我们知道可以使用循环遍历+条件判断的方法，但是有没有更简便的方法呢？<br>&emsp;&emsp;XPath路径表达式是XML文档中查找数据的语言，使用XPath路径表达式可以极大提高在XML中查找数据及提取数据的效率<br>&emsp;&emsp;在XPath中的基本表达式：</p>
+<table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nodename</td>
+<td align="center">选取此节点的所有子节点</td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="center">从根节点选取</td>
+</tr>
+<tr>
+<td align="center">//</td>
+<td align="center">从匹配选择的当前节点选取文档中的节点，而不考虑它们的位置</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">选取当前节点</td>
+</tr>
+<tr>
+<td align="center">..</td>
+<td align="center">选取当前节点的父节点</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center">选取属性</td>
+</tr>
+</tbody></table>
+<p>XPath谓语表达式（在基础表达式中加上[]限定）：</p>
+<table>
+<thead>
+<tr>
+<th align="center">路径表达式</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">/bookstore/book[1]</td>
+<td align="center">选取bookstore子元素下的第一个book元素</td>
+</tr>
+<tr>
+<td align="center">/bookstore/book[last()]</td>
+<td align="center">选取bookstore子元素下的最后一个book元素</td>
+</tr>
+<tr>
+<td align="center">/bookstore/book[last()-1]</td>
+<td align="center">选取bookstore子元素下的倒数第二个book元素</td>
+</tr>
+<tr>
+<td align="center">/bookstore/book[position()&lt;3]</td>
+<td align="center">选取bookstore子元素下的前两个book元素</td>
+</tr>
+<tr>
+<td align="center">//title[@lang]</td>
+<td align="center">选取所有拥有名为lang属性的title元素</td>
+</tr>
+<tr>
+<td align="center">//title[@lang=’eng’]</td>
+<td align="center">选取所有属性名为eng的title元素</td>
+</tr>
+<tr>
+<td align="center">/bookstore/book[price&gt;35.00]</td>
+<td align="center">选取bookstore子元素下的price大于35的book元素</td>
+</tr>
+<tr>
+<td align="center">/bookstore/book[price&gt;35.00]/title</td>
+<td align="center">选取bookstore子元素下的price大于35的book元素下的title元素</td>
+</tr>
+</tbody></table>
 <p>Jaxen介绍：Jaxen是一个Java编写的开源XPath库，适应多种不同的对象模型，包括DOM、XOM、dom4j和JDOM，而Dom4j底层依赖就是Jaxen实现XPath查询。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.web.dom4j;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.dom4j.*;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XPathTestor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">xpath</span><span class="params">(String xpathExp)</span></span>&#123;</span><br><span class="line">        String file = <span class="string">&quot;/Users/swenw/AwesomeProject/JavaEE/learningTask/hr.xml&quot;</span>;</span><br><span class="line">        SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Document document = reader.read(file);</span><br><span class="line">            <span class="comment">//会选择xpathExp的节点</span></span><br><span class="line">            List&lt;Node&gt; nodes = document.selectNodes(xpathExp);</span><br><span class="line">            <span class="keyword">for</span> (Node node : nodes) &#123;</span><br><span class="line">                Element emp = (Element)node;</span><br><span class="line">                System.out.print(emp.elementText(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (DocumentException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        XPathTestor test = <span class="keyword">new</span> XPathTestor();</span><br><span class="line">        <span class="comment">///按层级书写，而//不管层级关系</span></span><br><span class="line">        test.xpath(<span class="string">&quot;/hr/employee&quot;</span>);</span><br><span class="line">        test.xpath(<span class="string">&quot;//employee&quot;</span>);</span><br><span class="line">        <span class="comment">//找到age小于30的员工</span></span><br><span class="line">        test.xpath(<span class="string">&quot;//employee[age&lt;30]&quot;</span>);</span><br><span class="line">        <span class="comment">//找到name为Smith的员工，注意字符串为&#x27;&#x27;</span></span><br><span class="line">        test.xpath(<span class="string">&quot;//employee[name=&#x27;Smith&#x27;]&quot;</span>);</span><br><span class="line">        <span class="comment">//找到属性编号为2021的员工</span></span><br><span class="line">        test.xpath(<span class="string">&quot;//employee[@no=2021]&quot;</span>);</span><br><span class="line">        <span class="comment">//查询合并，使用|，找到第一个员工及第三个员工</span></span><br><span class="line">        test.xpath(<span class="string">&quot;//employee[0] | //employee[2]&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -686,7 +758,7 @@ getOutputStream() 获取字节流（能响应一切数据）
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
         		</li>
       		
 		</ul>
@@ -742,7 +814,7 @@ getOutputStream() 获取字节流（能响应一切数据）
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/12/Java-Web%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/12/Java-Web%E5%9F%BA%E7%A1%80(%E4%B8%80)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -755,6 +827,15 @@ getOutputStream() 获取字节流（能响应一切数据）
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/03/30/Java-Web%E5%9F%BA%E7%A1%80(%E4%BA%8C)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java-Web基础(二)
+        
+      </div>
+    </a>
   
   
     <a href="/2021/10/15/Java%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
@@ -893,15 +974,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">life</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Project</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">life</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java Web</a>
               </li>
             
             <div class="clearfix"></div>

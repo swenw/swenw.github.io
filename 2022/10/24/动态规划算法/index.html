@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>动态规划算法 | SWenW&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="动态规划1. 背包问题&amp;emsp;&amp;emsp;有N个物品，且背包的容量是V，对于每一个物品i，其体积为Vi，价值为Wi，在背包能装得下情况下（不一定将背包装满），求能获得的最大价值&lt;!— more —&gt; 01背包&amp;emsp;&amp;emsp;每件物品最多只选择一次未优化版本： 123456789101112131415161718192021#include &lt;iostream&gt;">
+  <meta name="description" content="动态规划1. 背包问题&amp;emsp;&amp;emsp;有N个物品，且背包的容量是V，对于每一个物品i，其体积为Vi，价值为Wi，在背包能装得下情况下（不一定将背包装满），求能获得的最大价值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划算法">
 <meta property="og:url" content="http://example.com/2022/10/24/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="SWenW&#39;s Blog">
-<meta property="og:description" content="动态规划1. 背包问题&amp;emsp;&amp;emsp;有N个物品，且背包的容量是V，对于每一个物品i，其体积为Vi，价值为Wi，在背包能装得下情况下（不一定将背包装满），求能获得的最大价值&lt;!— more —&gt; 01背包&amp;emsp;&amp;emsp;每件物品最多只选择一次未优化版本： 123456789101112131415161718192021#include &lt;iostream&gt;">
+<meta property="og:description" content="动态规划1. 背包问题&amp;emsp;&amp;emsp;有N个物品，且背包的容量是V，对于每一个物品i，其体积为Vi，价值为Wi，在背包能装得下情况下（不一定将背包装满），求能获得的最大价值">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16574199370899.jpg">
 <meta property="og:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16574199773923.jpg">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16574240640044.jpg">
 <meta property="og:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16574500272603.jpg">
 <meta property="article:published_time" content="2022-10-24T07:34:20.000Z">
-<meta property="article:modified_time" content="2022-10-24T07:34:51.684Z">
+<meta property="article:modified_time" content="2022-10-24T09:24:15.346Z">
 <meta property="article:author" content="SWenW">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -189,7 +189,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="1-背包问题"><a href="#1-背包问题" class="headerlink" title="1. 背包问题"></a>1. 背包问题</h2><p>&emsp;&emsp;有N个物品，且背包的容量是V，对于每一个物品i，其体积为Vi，价值为Wi，在背包能装得下情况下（不一定将背包装满），求能获得的最大价值<br>&lt;!— more —&gt;<br><img src="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16574199370899.jpg" alt="背包DP思路"></p>
+        <h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="1-背包问题"><a href="#1-背包问题" class="headerlink" title="1. 背包问题"></a>1. 背包问题</h2><p>&emsp;&emsp;有N个物品，且背包的容量是V，对于每一个物品i，其体积为Vi，价值为Wi，在背包能装得下情况下（不一定将背包装满），求能获得的最大价值</p>
+<span id="more"></span>
+<p><img src="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16574199370899.jpg" alt="背包DP思路"></p>
 <h3 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h3><p>&emsp;&emsp;<strong>每件物品最多只选择一次</strong><br><img src="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16574199773923.jpg" alt="01背包状态转移方程"><br>未优化版本：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> f[N][N], v[N], w[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;v[i], &amp;w[i]);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;=m; j++) &#123;</span><br><span class="line">			f[i][j] = f[i<span class="number">-1</span>][j];</span><br><span class="line">			<span class="keyword">if</span> (j &gt;= v[i])</span><br><span class="line">				f[i][j] = max(f[i][j], f[i<span class="number">-1</span>][j-v[i]]+w[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; f[n][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>优化版本：</p>

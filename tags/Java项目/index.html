@@ -6,23 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>贪心算法 | SWenW&#39;s Blog</title>
+  <title>Tag: Java项目 | SWenW&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="贪心1. 区间问题&amp;emsp;&amp;emsp;区间贪心问题一般要涉及对左端点、右端点、双端点进行排序">
-<meta property="og:type" content="article">
-<meta property="og:title" content="贪心算法">
-<meta property="og:url" content="http://example.com/2022/10/24/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="SWenW&#39;s Blog">
+<meta property="og:url" content="http://example.com/tags/Java%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="SWenW&#39;s Blog">
-<meta property="og:description" content="贪心1. 区间问题&amp;emsp;&amp;emsp;区间贪心问题一般要涉及对左端点、右端点、双端点进行排序">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16579704203413.jpg">
-<meta property="og:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16579704711076.jpg">
-<meta property="article:published_time" content="2022-10-24T07:31:46.000Z">
-<meta property="article:modified_time" content="2022-10-24T09:23:51.260Z">
 <meta property="article:author" content="SWenW">
-<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16579704203413.jpg">
   
     <link rel="alternative" href="/atom.xml" title="SWenW&#39;s Blog" type="application/atom+xml">
   
@@ -165,227 +157,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-贪心算法" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      贪心算法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/01/06/SSM-%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2023-01-06T06:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2023/01/06/SSM-%E9%A1%B9%E7%9B%AE/">SSM 项目</a>
     </h1>
   
 
-        
-        <a href="/2022/10/24/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-10-24T07:31:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><h2 id="1-区间问题"><a href="#1-区间问题" class="headerlink" title="1. 区间问题"></a>1. 区间问题</h2><p>&emsp;&emsp;区间贪心问题一般要涉及对左端点、右端点、双端点进行排序</p>
-<span id="more"></span>
-<h3 id="区间选点"><a href="#区间选点" class="headerlink" title="区间选点"></a>区间选点</h3><blockquote>
-<p>&emsp;&emsp;给定 N个闭区间 [ai,bi]，请你在数轴上选择尽量少的点，使得每个区间内至少包含一个选出的点。输出选择的点的最小数量。位于区间端点上的点也算作区间内。</p>
-</blockquote>
-<ol>
-<li>将每个区间按右端点从小到大排序</li>
-<li>从前往后依次枚举每个区间，如果当前区间中已经包含点，则直接pass，否则，选择当前区间的右端点</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; v;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;a, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">1</span>] &lt; b[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">        v.push_back(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;());</span><br><span class="line">        v[i].push_back(a);</span><br><span class="line">        v[i].push_back(b);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(v.begin(), v.end(), cmp);</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">1</span>, ch = v[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;v.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v[i][<span class="number">0</span>] &gt; ch) &#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            ch = v[i][<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="最大不相交区间数量"><a href="#最大不相交区间数量" class="headerlink" title="最大不相交区间数量"></a>最大不相交区间数量</h3><blockquote>
-<p>&emsp;&emsp; 给定 N个闭区间 [ai,bi]，请你在数轴上选择若干区间，使得选中的区间之间互不相交（包括端点）。输出可选取区间的最大数量。</p>
-</blockquote>
-<p>&emsp;&emsp;代码和上一题一致，因为每一个区间的选择都不会有交集，可以用反证法证明，如果再增加多一个区间A，这个区间A不包含在原来的区间B中，那么根据上一题就知道肯定有遗漏的点没在区间B中，与题意不符</p>
-<h3 id="区间分组"><a href="#区间分组" class="headerlink" title="区间分组"></a>区间分组</h3><blockquote>
-<p>&emsp;&emsp;给定 N个闭区间 [ai,bi]，请你将这些区间分成若干组，使得每组内部的区间两两之间（包括端点）没有交集，并使得组数尽可能小。</p>
-</blockquote>
-<ol>
-<li>将所有区间按照左端点从小到大排序</li>
-<li>从前往后处理每个区间，判断能否将其放到某个现有的组中 L[i] &gt; Max_r<ul>
-<li>如果不存在这样的组，表示当前的区间和每个组都有交集，则开新组，并将区间放入</li>
-<li>如果存在这样的组，则将其放进去，并更新当前组的Max_r</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; qu;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;a, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> l, r;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;l, &amp;r);</span><br><span class="line">        qu.push_back(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ());</span><br><span class="line">        qu[i].push_back(l);</span><br><span class="line">        qu[i].push_back(r);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(qu.begin(), qu.end(), cmp); <span class="comment">// 对左端点进行排序</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 动态维护区间右端点的最小值</span></span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; heap;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (heap.empty() || qu[i][<span class="number">0</span>] &lt;= heap.top()) &#123;</span><br><span class="line">            heap.push(qu[i][<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (qu[i][<span class="number">0</span>] &gt; heap.top()) &#123;</span><br><span class="line">            heap.pop();</span><br><span class="line">            heap.push(qu[i][<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; heap.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="区间覆盖"><a href="#区间覆盖" class="headerlink" title="区间覆盖"></a>区间覆盖</h3><blockquote>
-<p>&emsp;&emsp;给定 N个闭区间 [ai,bi]以及一个线段区间 [s,t]，请你选择尽量少的区间，将指定线段区间完全覆盖。输出最少区间数，如果无法完全覆盖则输出−1。</p>
-</blockquote>
-<ol>
-<li>将所有区间按左端点从小到大排序</li>
-<li>从前往后依次枚举每个区间，在所有能覆盖[start, end]的start的区间中，选择右端点最大的区间，然后将start更新为右端点的最大值</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">    <span class="keyword">int</span> j = i, res = <span class="number">-1e9</span>;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; n &amp;&amp; qu[j][<span class="number">0</span>] &lt;= start) &#123;</span><br><span class="line">        res = max(res, qu[j][<span class="number">1</span>]);</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (res &lt; start) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cnt++;</span><br><span class="line">    start = res;</span><br><span class="line">    <span class="keyword">if</span> (start &gt;= end) <span class="keyword">break</span>;</span><br><span class="line">    i = j - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (start &lt; end) <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-Huffman树"><a href="#2-Huffman树" class="headerlink" title="2. Huffman树"></a>2. Huffman树</h2><h3 id="合并果子"><a href="#合并果子" class="headerlink" title="合并果子"></a>合并果子</h3><blockquote>
-<p>&emsp;&emsp;每一次合并，达达可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。可以看出，所有的果子经过 n−1次合并之后，就只剩下一堆了。达达在合并果子时总共消耗的体力等于每次合并所耗体力之和。<br>&emsp;&emsp;例如有 3 种果子，数目依次为 1，2，9可以先将 1、2堆合并，新堆数目为3，耗费体力为 3。接着，将新堆与原先的第三堆合并，又得到新的堆，数目为 12，耗费体力为 12。所以达达总共耗费体力=3+12=15。</p>
-</blockquote>
-<p>&emsp;&emsp;这个题与之前合并小石堆的不同之处在于，小石堆只能合并相邻的，而合并果子可以任意合并，因此采用Huffman思想，每次只需要合并值最小的两堆</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">    <span class="keyword">int</span> elem;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;elem);</span><br><span class="line">    heap.push(elem);</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (heap.size() != <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">2</span>; i++) &#123;</span><br><span class="line">        tmp += heap.top();</span><br><span class="line">        heap.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    heap.push(tmp);</span><br><span class="line">    res += tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-排序不等式"><a href="#3-排序不等式" class="headerlink" title="3. 排序不等式"></a>3. 排序不等式</h2><h3 id="排队打水"><a href="#排队打水" class="headerlink" title="排队打水"></a>排队打水</h3><blockquote>
-<p>&emsp;&emsp;有 n个人排队到 1个水龙头处打水，第 i个人装满水桶所需的时间是 ti，请问如何安排他们的打水顺序才能使所有人的等待时间之和最小？</p>
-</blockquote>
-<p>&emsp;&emsp;可以参考OS中的短作业优先算法</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sort(a, a+n);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) res += a[i] * (n - i - <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-绝对值不等式"><a href="#4-绝对值不等式" class="headerlink" title="4. 绝对值不等式"></a>4. 绝对值不等式</h2><blockquote>
-<p>&emsp;&emsp;在一条数轴上有 N家商店，它们的坐标分别为 A1∼AN。现在需要在数轴上建立一家货仓，每天清晨，从货仓到每家商店都要运送一车商品。为了提高效率，求把货仓建在何处，可以使得货仓到每家商店的距离之和最小</p>
-</blockquote>
-<p><img src="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16579704203413.jpg" alt="解题思路"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sort(a, a+n);</span><br><span class="line">    </span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i * <span class="number">2</span> &lt; n; i++) &#123;</span><br><span class="line">    res += a[n-i<span class="number">-1</span>] - a[i];</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-推公式"><a href="#5-推公式" class="headerlink" title="5. 推公式"></a>5. 推公式</h2><h3 id="耍杂技的牛"><a href="#耍杂技的牛" class="headerlink" title="耍杂技的牛"></a>耍杂技的牛</h3><blockquote>
-<p>&emsp;&emsp;农民约翰的 N头奶牛（编号为 1..N）计划逃跑并加入马戏团，为此它们决定练习表演杂技。这 N头奶牛中的每一头都有着自己的重量 Wi以及自己的强壮程度 Si。<br>&emsp;&emsp;一头牛支撑不住的可能性取决于它头上所有牛的总重量（不包括它自己）减去它的身体强壮程度的值，现在称该数值为风险值，风险值越大，这只牛撑不住的可能性越高。您的任务是确定奶牛的排序，使得所有奶牛的风险值中的最大值尽可能的小。</p>
-</blockquote>
-<p>&emsp;&emsp;按照wi + si从小到大的顺序排，最大的危险系数一定是最小的（不一定是排序后的最后一个）</p>
-<p><img src="http://sww-blog.oss-cn-chengdu.aliyuncs.com/MWeb/2022/10/24/16579704711076.jpg" alt="解题思路"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">50010</span>;</span><br><span class="line"><span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; cow[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; a, <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a.first + a.second) &lt; (b.first + b.second);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> w, s;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;w, &amp;s);</span><br><span class="line">        cow[i] = &#123;w, s&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(cow, cow+n, cmp);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">-1e9</span>, sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> tmp = sum - cow[i].second;</span><br><span class="line">        res = max(res, tmp);</span><br><span class="line">        sum += cow[i].first;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java项目</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/10/24/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2022/10/24/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          动态规划算法
-        
-      </div>
-    </a>
   
   
-    <a href="/2022/10/24/Java-Web%E5%9F%BA%E7%A1%80(%E4%B8%89)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java Web基础(三)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83"><span class="toc-number">1.</span> <span class="toc-text">贪心</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8C%BA%E9%97%B4%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">1. 区间问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">区间选点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">最大不相交区间数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E5%88%86%E7%BB%84"><span class="toc-number">1.1.3.</span> <span class="toc-text">区间分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E8%A6%86%E7%9B%96"><span class="toc-number">1.1.4.</span> <span class="toc-text">区间覆盖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Huffman%E6%A0%91"><span class="toc-number">1.2.</span> <span class="toc-text">2. Huffman树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E6%9E%9C%E5%AD%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">合并果子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8E%92%E5%BA%8F%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">3. 排序不等式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E9%98%9F%E6%89%93%E6%B0%B4"><span class="toc-number">1.3.1.</span> <span class="toc-text">排队打水</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%BB%9D%E5%AF%B9%E5%80%BC%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">4. 绝对值不等式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8E%A8%E5%85%AC%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">5. 推公式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%80%8D%E6%9D%82%E6%8A%80%E7%9A%84%E7%89%9B"><span class="toc-number">1.5.1.</span> <span class="toc-text">耍杂技的牛</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -408,9 +233,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
